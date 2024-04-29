@@ -1,0 +1,91 @@
+@layer Skeleton {
+  .skeleton {
+    --_skeleton-background: #efefef;
+    --_skeleton-image-aspect: 16/9;
+    --_skelete-base-line-height: 14px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-block: 1.5rem;
+    animation: 1000ms skeletonPulse infinite ease;
+
+    .skeleton-text {
+      --_skeleton-lines: 1;
+      --_skeleton-line-height: var(--_skeleton-base-line-height);
+      --_skeleton-line-gap: calc(var(--_skeleton-line-height) * 0.574);
+      --_skeleton-line-width: 90%;
+
+      width: var(--_skeleton-line-width);
+      height: calc(
+        (var(--_skeleton-line-height) * var(--_skeleton-lines)) +
+          (var(--_skeleton-line-gap) * (var(--_skeleton-lines) - 1))
+      );
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--_skeleton-background),
+        var(--_skeleton-background) var(--_skeleton-line-height),
+        transparent var(--_skeleton-line-height),
+        transparent
+          calc(var(--_skeleton-line-height) + var(--_skeleton-line-gap))
+      );
+    }
+
+    &[data-skeleton-text-size="small"] .skeleton-text {
+      --_skeleton-line-width: 90%;
+      --_skeleton-line-height: calc(var(--_skeleton-base-line-height) * 0.75);
+    }
+    &[data-skeleton-text-size="large"] .skeleton-text {
+      --_skeleton-line-width: 60%;
+      --_skeleton-line-height: calc(var(--_skeleton-base-line-height) * 1.5);
+    }
+    .skeleton-image {
+      border-radius: 0.5rem;
+      background-color: var(--_skeleton-background);
+      aspect-ratio: var(--_skeleton-image-aspect, 16/9);
+    }
+
+    .skeleton-bar-chart {
+      --_skeleton-chart-height: 200px;
+      --_skeleton-chart-background: #efefef;
+      --_skeleton-chart-color: #f0f0f0;
+      --_skeleton-chart-width: 30px;
+      --_skeleton-chart-border-radius: 0.5rem;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: var(--_skeleton-chart-width);
+      height: var(--_skeleton-chart-height);
+
+      .skeleton-bar-chart-item {
+        width: var(--_skeleton-chart-width);
+        height: var(--_skeleton-bar-chart-height);
+        background: var(--_skeleton-chart-background);
+      }
+
+      border-radius: var(--_skeleton-chart-border-radius);
+      color: var(--_skeleton-chart-color);
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .skeleton-images {
+    display: grid;
+    grid-template-columns: repeat(var(--_skeleton-images, 3), 1fr);
+    gap: 1rem;
+  }
+
+  @keyframes skeletonPulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}

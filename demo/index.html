@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="../src/skeleton.css" />
+    <script type="module" src="../src/skeleton.js"></script>
+    <style>
+      body {
+        margin: 4ch;
+        max-width: 80ch;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div
+        class="skeleton"
+        data-skeleton-image
+        data-skeleton-image-aspect-ratio="2.5"
+      ></div>
+      <div
+        class="skeleton"
+        data-skeleton-text="1"
+        data-skeleton-text-size="large"
+      ></div>
+      <div class="skeleton" data-skeleton-text="3"></div>
+      <div class="skeleton" data-skeleton-bar-chart></div>
+    </div>
+
+    <script type="module">
+      import { Skeleton } from "./skeleton.js";
+      (() => {
+        const targets = document.querySelectorAll(".skeleton");
+
+        targets.forEach((target) => {
+          const skeleton = new Skeleton({
+            target,
+            minLineHeight: 20,
+          });
+          skeleton.render();
+        });
+      })();
+    </script>
+  </body>
+</html>

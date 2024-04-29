@@ -1,0 +1,25 @@
+{
+  "name": "skeletons",
+  "version": "0.0.1",
+  "description": "Generate decent looking skeleton loaders for your app",
+  "main": "src/skeleton.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "skeleton",
+    "loader",
+    "web",
+    "ui"
+  ],
+  "author": "Axl Crawford",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axcellence/skeletons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/axcellence/skeletons/issues"
+  },
+  "homepage": "https://github.com/axcellence/skeletons#readme"
+}
